@@ -14,6 +14,12 @@ export default {
     Pagination,
   },
 
+  data () {
+    return {
+      showFilter: false
+    }
+  },
+
   async mounted() {
     await this.$store.dispatch('stein.store/get', {skip: 0, limit: 5})
   }

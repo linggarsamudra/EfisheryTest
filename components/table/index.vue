@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full text-sm">
-    <div class="hidden md:flex border rounded-t py-2 bg-green-200">
+    <div class="hidden md:flex border rounded-t py-2 bg-green-500 text-white">
       <span class="w-2/12 justify-center mx-1">No. </span>
       <span class="w-2/12 justify-center mx-1">Province</span>
     </div>
