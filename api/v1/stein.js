@@ -25,6 +25,28 @@ const getAllList = (cb) => {
   req.end();
 }
 
+const getAllArea = (cb) => {
+  const options = {
+    hostname: 'stein.efishery.com',
+    path: '/v1/storages/5e1edf521073e315924ceab4/option_area',
+    method: 'GET'
+  };
+  const req = https.request(options, (res) => {
+    let data = '';
+    res.on('data', (chunk)=> { // data is event name here
+      data = data + chunk.toString();
+    })
+    res.on('end', () => {
+      let body = JSON.parse(data);
+      cb(body);
+    })
+  });
+  req.on('error', (err) => {
+    cb(err);
+  });
+  req.end();
+}
+
 const isValidDate = (d) => {
   return d instanceof Date && !isNaN(d);
 }
@@ -135,6 +157,21 @@ app.get('/stein/data', async function(request, response) {
   });
 
 });
+
+app.get('/stein/area', async function(request, response) {
+
+  await getAllArea((res) => {
+
+    const skip = request.query.skip ?? 0;
+    const limit = request.query.limit ?? 10;
+    const result = res.slice(skip, limit);
+
+    response.status(200).send(result);
+
+  });
+
+});
+
 
 module.exports = {
   path: '/api/v1',
