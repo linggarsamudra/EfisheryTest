@@ -3,7 +3,7 @@ export default {
   props: {
     icon: {
       type: Array,
-      default: ['fas', 'chart-line'],
+      default: () => ['fas', 'chart-line'],
     },
     title: {
       type: String,
