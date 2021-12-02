@@ -3,7 +3,11 @@ export default {
   props: {
     data: {
       type: Array,
-      default: [],
+      default: () => [],
+    },
+    header: {
+      type: Array,
+      default: () => [],
     },
   },
 

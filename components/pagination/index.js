@@ -17,7 +17,7 @@ export default {
 
   data () {
     return {
-      btnRange: 2,
+      btnRange: 3,
       lastPage: 1
     }
   },

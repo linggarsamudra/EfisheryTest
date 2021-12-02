@@ -1,15 +1,21 @@
 <template>
   <div class="flex flex-col md:flex-row w-full text-sm">
     <div class="flex justify-center md:justify-start items-center w-full md:w-1/2">
-      Perpage Configuration
+      <!-- Perpage Configuration -->
     </div>
     <div class="flex justify-center md:justify-end items-center w-full md:w-1/2 mt-2 md:mt-0">
-      <span v-if="(currentPage - btnRange) > 1" class="flex w-8 h-8 justify-center items-center 
-      rounded-full text-gray-800 cursor-pointer hover:bg-green-100 shadow mx-0.5">
+      <span :class="[`
+        flex w-8 h-8 justify-center items-center rounded-full 
+        text-gray-800 shadow mx-0.5`,
+        (currentPage - btnRange) > 1 ? `cursor-pointer hover:bg-green-100` : `bg-gray-100`
+        ]">
         <fa class="" :icon="['fas', 'angle-double-left']" />
       </span>
-      <span v-if="(currentPage - btnRange) > 1" class="flex w-8 h-8 justify-center items-center 
-      rounded-full text-gray-800 cursor-pointer hover:bg-green-100 shadow mx-0.5">
+      <span :class="[`
+        flex w-8 h-8 justify-center items-center rounded-full 
+        text-gray-800 shadow mx-0.5`,
+        (currentPage - btnRange) > 1 ? `cursor-pointer hover:bg-green-100` : `bg-gray-100`
+        ]">
         <fa class="" :icon="['fas', 'angle-left']" />
       </span>
 
@@ -31,12 +37,18 @@
       ...
       </span>
 
-      <span v-if="(currentPage + btnRange) < lastPage" class="flex w-8 h-8 justify-center items-center 
-      rounded-full text-gray-800 cursor-pointer hover:bg-green-100 shadow mx-0.5">
+      <span :class="[`
+          flex w-8 h-8 justify-center items-center rounded-full 
+          text-gray-800 shadow mx-0.5`,
+          (currentPage + btnRange) < lastPage ? `cursor-pointer hover:bg-green-100` : `bg-gray-100`
+        ]">
         <fa class="" :icon="['fas', 'angle-right']" />
       </span>
-      <span v-if="(currentPage + btnRange) < lastPage" class="flex w-8 h-8 justify-center items-center 
-      rounded-full text-gray-800 cursor-pointer hover:bg-green-100 shadow mx-0.5">
+      <span :class="[`
+          flex w-8 h-8 justify-center items-center rounded-full 
+          text-gray-800 shadow mx-0.5`,
+          (currentPage + btnRange) < lastPage ? `cursor-pointer hover:bg-green-100` : `bg-gray-100`
+        ]">
         <fa class="" :icon="['fas', 'angle-double-right']" />
       </span>
     </div>
