@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'outfit';
+  src: local('outfit'), url(Outfit/static/Outfit-Light.ttf) format('truetype');
+}
+
+* {
+  font-family: outfit;
+}

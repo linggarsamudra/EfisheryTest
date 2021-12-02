@@ -1,16 +1,16 @@
-let express = require('express');
-let app = express();
 const https = require('https');
+const express = require('express');
+const app = express();
 
 app.get('/stein', function(request, response) {
 
-  let options = {
+  const options = {
     hostname: 'stein.efishery.com',
     path: '/v1/storages/5e1edf521073e315924ceab4/list',
     method: 'GET'
   };
 
-  let req = https.request(options, (res) => {
+  const req = https.request(options, (res) => {
     let data = '';
     res.on('data', (chunk)=> { // data is event name here
       data = data + chunk.toString();
@@ -25,8 +25,8 @@ app.get('/stein', function(request, response) {
     })
   });
 
-  req.on('error', (e) => {
-    console.error(e);
+  req.on('error', () => {
+    // console.error(e);
   });
 
   req.end();
